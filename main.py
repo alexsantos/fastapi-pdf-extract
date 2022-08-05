@@ -84,4 +84,4 @@ async def create_upload_file(request: Request, files: list[UploadFile], username
 if __name__ == "__main__":
     import uvicorn
     server_port = os.environ.get('PORT', '8000')
-    uvicorn.run("main:app", host="0.0.0.0", port=server_port, log_level="info", proxy_headers=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=server_port, log_level="info")
