@@ -74,9 +74,9 @@ async def create_upload_file(request: Request, files: list[UploadFile], username
         try:
             result = pdfextract.compute(file.file)
             values_list.extend(result)
-            response.append({"filename": file.filename, "result": "Ficheiro convertido com Sucesso."})
+            response.append({"filename": file.filename, "result": "The files were processed."})
         except PDFSyntaxError:
-            response.append({"filename": file.filename, "result": "Erro", "message": "Not a valid PDF"})
+            response.append({"filename": file.filename, "result": "Error", "message": "Not a valid PDF"})
     if len(values_list) > 0:
         response.append(append_values(values_list))
     return templates.TemplateResponse('form.html', context={"request": request, "response": response})
